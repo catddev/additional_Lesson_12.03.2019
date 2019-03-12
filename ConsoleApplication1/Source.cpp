@@ -10,94 +10,52 @@ using namespace std;
 
 int main()
 {
-	srand(time(NULL));
 
-	setlocale(LC_ALL, "Rus");
-
-	int tn = 0;
-
-	while (true)
-	{
-		cout << "Задача № ";
-		cin >> tn; cin.get();
-
-		switch (tn)
-		{
-		case 1:
-		{
+			//char ch[10];
 			ifstream in_file;
-			in_file.open("Source.cpp"); //привязка к физ файлу с которого считывать будет
-			// out всегда запись, а in считывание
+			//in_file.open("Source.cpp"); //привязка к физ файлу с которого считывать будет
+			//// out всегда запись, а in считывание
+
+			//// app -открывает файл чтобы добавлять туда
 
 			ofstream out_file; //создание переменной которая будет записывать
-			out_file.open("Out.cpp"); //создание и привязка к файлу, который будет копией
+			//out_file.open("Out.cpp"); //создание и привязка к файлу, который будет копией
 
-			char ch;
+			//if (!in_file)
+			//{
+			//	cout << "file open error" << endl;
+			//}
+			//else
+			//{
+			//	while (!in_file.eof()) // пока не достигнем конца файла, т.е. пока считывается
+			//	{
+			//		in_file.read(ch, 10); // ch это буфер для копирования
+			//		out_file.write(ch, 10);
+			//		// read, write для сырых байтов
+			//	}
+			//}
 
-			if (!in_file)
+			in_file.open("in.txt");
+			int sum = 0, k = 0, x;
+			if(!in_file)
 			{
 				cout << "file open error" << endl;
 			}
 			else
 			{
-				while (!in_file.eof()) // пока не достигнем конца файла
+				while (!in_file.eof())
 				{
-					in_file.get(ch); // ch это буфер для копирования
-					out_file << ch;
+					in_file >> x;
+					cout << x << " ";
+					sum += x;
+					k++;
 				}
 			}
+			cout << endl;
+			cout << "sum = " << sum << endl;
+			cout << "quantity = " << k << endl << endl;
 
-		}
-		break;
-		case 2:
-		{
 
-		}
-		break;
-		case 3:
-		{
-
-		}
-		break;
-		case 4:
-		{
-
-		}
-		break;
-		case 5:
-		{
-
-		}
-		break;
-		case 6:
-		{
-
-		}
-		break;
-		case 7:
-		{
-
-		}
-		break;
-		case 8:
-		{
-
-		}
-		break;
-		case 9:
-		{
-
-		}
-		break;
-		case 10:
-		{
-
-		}
-		break;
-		default:
-			cout << "нет такой задачи" << endl << endl;
-		}
-	}
 	system("pause");
 	return 0;
 }
